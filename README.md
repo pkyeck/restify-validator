@@ -1,6 +1,6 @@
 # restify-validator
 
-A [restify.js]( https://github.com/mcavage/restify ) middleware for
+A [restify.js]( https://github.com/mcavage/node-restify ) middleware for
 [node-validator]( https://github.com/chriso/node-validator ).
 
 This is basically a copy of a [gist]( https://gist.github.com/752126 ) by
