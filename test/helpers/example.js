@@ -1,10 +1,10 @@
 var util = require('util'),
-    express = require('express'),
-    expressValidator = require('../../index'),
-    app = express.createServer();
+    restify = require('restify'),
+    restifyValidator = require('../../index'),
+    app = restify.createServer();
 
-app.use(express.bodyParser());
-app.use(expressValidator);
+app.use(restify.bodyParser());
+app.use(restifyValidator);
 
 app.post('/:urlparam', function(req, res) {
 
@@ -19,10 +19,10 @@ app.post('/:urlparam', function(req, res) {
     res.send('There have been validation errors: ' + util.inspect(errors), 500);
     return;
   }
-  res.json({
-    urlparam: req.param('urlparam'),
-    getparam: req.param('getparam'),
-    postparam: req.param('postparam')
+  res.send({
+    urlparam: req.params['urlparam'],
+    getparam: req.params['getparam'],
+    postparam: req.params['postparam']
   });
 });
 

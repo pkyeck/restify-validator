@@ -7,7 +7,7 @@ var req = require('./helpers/req');
 var port = process.env.NODE_HTTP_PORT || 8888;
 var url = 'http://localhost:' + port;
 
-// Express routes can be defined using regular expressions
+// Restify routes can be defined using regular expressions
 
 var errorMessage = 'Parameter is not a 3 digit integer';
 var validation = function(req, res) {
@@ -15,10 +15,10 @@ var validation = function(req, res) {
 
   var errors = req.validationErrors();
   if (errors) {
-    res.json(errors);
+    res.send(errors);
     return;
   }
-  res.json([req.params[0]]);
+  res.send([req.params[0]]);
 };
 var app = new App(port, validation);
 app.start();

@@ -1,6 +1,6 @@
 // Sample app
-var express = require('express');
-var expressValidator = require('../../index');
+var restify = require('restify');
+var restifyValidator = require('../../index');
 
 function App(port, validation) {
   this.app = null;
@@ -11,12 +11,16 @@ module.exports = App;
 
 App.prototype.start = function() {
   var self = this;
-  self.app = express.createServer();
+  self.app = restify.createServer();
 
-  self.app.use(express.bodyParser());
-  self.app.use(expressValidator);
+  self.app.use(restify.queryParser());
+  self.app.use(restify.bodyParser());
+  
+  self.app.use(restifyValidator);
 
   self.app.get(/\/test(\d+)/, self.validation);
+  self.app.get('/', self.validation);
+  self.app.post('/', self.validation);
   self.app.get('/:testparam?', self.validation);
   self.app.post('/:testparam?', self.validation);
 

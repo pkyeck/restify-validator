@@ -16,10 +16,10 @@ var validation = function(req, res) {
 
   var errors = req.validationErrors();
   if (errors) {
-    res.json(errors);
+    res.send(errors);
     return;
   }
-  res.json(req.body);
+  res.send(req.body);
 };
 var app = new App(port, validation);
 app.start();

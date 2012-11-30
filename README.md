@@ -38,9 +38,9 @@ app.post('/:urlparam', function(req, res) {
     return;
   }
   res.json({
-    urlparam: req.param('urlparam'),
-    getparam: req.param('getparam'),
-    postparam: req.param('postparam')
+    urlparam: req.params['urlparam'],
+    getparam: req.params['getparam'],
+    postparam: req.params['postparam']
   });
 });
 

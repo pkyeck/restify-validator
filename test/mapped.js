@@ -15,10 +15,10 @@ var validation = function(req, res) {
 
   var errors = req.validationErrors(true);
   if (errors) {
-    res.json(errors);
+    res.send(errors);
     return;
   }
-  res.json({email: req.param('email')});
+  res.send({email: req.params['email']});
 };
 var app = new App(port, validation);
 app.start();
