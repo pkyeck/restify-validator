@@ -6,7 +6,7 @@
     "Chris O'Hara <cohara87@gmail.com>",
     "@orfaust"
   ],
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/cjroebuck/restify-validator",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "node": "*"
   },
   "dependencies": {
-    "validator": "0.4.12"
+    "validator": "1.1.1"
   },
   "devDependencies": {
     "async": "~0.1.22",
